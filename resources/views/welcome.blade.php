@@ -15,20 +15,17 @@
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
-
         :root {
             --primary-color: #276f27;
             --primary-dark: #1b4f1b;
             --accent-color: #ffcc00;
             --bg-light: #f8f9fa;
         }
-
         body {
             background-color: var(--bg-light);
             color: #333;
             overflow-x: hidden;
         }
-
         img {
             max-width: 100%;
             height: auto;
@@ -46,10 +43,8 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
-        /* 1. TOP BAR DESKTOP */
-        /* Styling Top Bar Baru */
-        /* Container Utama Top Bar */
-        .top-bar {
+        /* TOP BAR DESKTOP */
+            .top-bar {
             background-color: #ffffff;
             display: flex;
             justify-content: space-between;
@@ -60,27 +55,19 @@
             color: #444444;
             border-bottom: 1px solid #e0e0e0;
         }
-
-        /* Sisi Kiri (Telepon, Email, & Ikon Sosmed) */
         .top-left {
             display: flex;
             align-items: center;
-            gap: 8px; /* Jarak default antar elemen */
+            gap: 8px; 
         }
-
-        /* Warna Ikon Telepon dan Email */
         .top-left > i {
-            color: #008080; /* Ganti sesuai warna utama / primary-color Anda */
+            color: #008080; 
         }
-
-        /* Pembatas Garis Vertical (|) */
         .top-left .divider {
             color: #cccccc;
             margin: 0 4px;
             user-select: none;
         }
-
-        /* Styling Dasar Ikon Media Sosial */
         .top-left .social-icon {
             color: #555555;
             font-size: 14px;
@@ -94,67 +81,53 @@
             border-radius: 50%;
             transition: all 0.25s ease;
         }
-
-        /* Efek Hover dengan Warna Khas Masing-Masing Media Sosial */
         .top-left .social-icon.wa:hover {
             color: #25D366;
             background-color: rgba(37, 211, 102, 0.1);
             transform: translateY(-2px);
         }
-
         .top-left .social-icon.ig:hover {
             color: #E4405F;
             background-color: rgba(228, 64, 95, 0.1);
             transform: translateY(-2px);
         }
-
         .top-left .social-icon.yt:hover {
             color: #FF0000;
             background-color: rgba(255, 0, 0, 0.1);
             transform: translateY(-2px);
         }
-
         .top-left .social-icon.tt:hover {
             color: #000000;
             background-color: rgba(0, 0, 0, 0.08);
             transform: translateY(-2px);
         }
-
         .top-left .social-icon.fb:hover {
             color: #1877F2;
             background-color: rgba(24, 119, 242, 0.1);
             transform: translateY(-2px);
         }
-
-        /* Sisi Kanan (Status Jam Kerja) */
         .top-right {
             display: flex;
             align-items: center;
             gap: 8px;
             font-weight: 500;
         }
-
-        /* Indikator Titik Status */
         .status-dot {
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background-color: #cccccc; /* Default abu-abu saat memeriksa */
+            background-color: #cccccc; 
             display: inline-block;
         }
-
-        /* Opsional: Style ketika status Buka / Tutup diubah via JavaScript */
         .status-dot.open {
-            background-color: #2ec4b6; /* Hijau / Toska Buka */
+            background-color: #2ec4b6; 
             box-shadow: 0 0 6px rgba(46, 196, 182, 0.6);
         }
-
         .status-dot.closed {
-            background-color: #e63946; /* Merah Tutup */
+            background-color: #e63946; 
         }
 
-
-                /* 2. NAVBAR UTAMA DESKTOP */
+        /* NAVBAR UTAMA DESKTOP */
         .navbar {
             background-color: var(--primary-color);
             display: flex;
@@ -164,8 +137,6 @@
             height: 75px;
             position: relative;
         }
-
-        /* Logo Puskesmas */
         .logo {
             display: flex;
             align-items: center;
@@ -178,19 +149,13 @@
             text-transform: uppercase;
             gap: 12px;
         }
-
         .logo img {
             height: 48px;
             width: auto;
         }
-
         .mobile-status-bar {
             display: none;
         }
-
-
-
-        /* Mobile Hamburger Toggle */
         .mobile-toggle {
             display: none;
             background: rgba(255, 255, 255, 0.15);
@@ -205,24 +170,19 @@
             justify-content: center;
             transition: all 0.2s;
         }
-
         .mobile-toggle:active {
             transform: scale(0.95);
         }
-
-        /* Navigasi Desktop */
         .nav-menu {
             display: flex;
             list-style: none;
             align-items: center;
             height: 100%;
         }
-
         .nav-item {
             position: relative;
             height: 100%;
         }
-
         .nav-item > a {
             color: white;
             text-decoration: none;
@@ -234,12 +194,10 @@
             align-items: center;
             transition: all 0.2s;
         }
-
         .nav-item:hover > a {
             background-color: var(--primary-dark);
             color: var(--accent-color);
         }
-
         .dropdown-menu {
             display: none;
             position: absolute;
@@ -253,7 +211,6 @@
             border-radius: 0 0 8px 8px;
             overflow: hidden;
         }
-
         .dropdown-menu li a {
             color: #333;
             padding: 12px 20px;
@@ -263,27 +220,22 @@
             border-bottom: 1px solid #f0f0f0;
             transition: background 0.2s;
         }
-
         .dropdown-menu li a:hover {
             background-color: #f4f6f4;
             color: var(--primary-color);
             padding-left: 24px;
         }
-
         .nav-item:hover .dropdown-menu {
             display: block;
         }
-
         .nav-icon {
             font-size: 11px;
             margin-left: 6px;
             transition: transform 0.2s;
         }
-
         .nav-item:hover .nav-icon {
             transform: rotate(180deg);
         }
-
         .search-btn {
             background-color: white;
             color: var(--primary-color);
@@ -298,18 +250,14 @@
             margin-left: 12px;
             transition: all 0.2s;
         }
-
         .search-btn:hover {
             background-color: var(--accent-color);
         }
-
-        /* Search Bar di Nav Mobile */
         .mobile-search {
             display: none;
             padding: 12px 16px;
             border-bottom: 1px solid #eef2f5;
         }
-
         .mobile-search-box {
             display: flex;
             background: #f1f5f9;
@@ -317,7 +265,6 @@
             padding: 6px 12px;
             align-items: center;
         }
-
         .mobile-search-box input {
             border: none;
             background: transparent;
@@ -326,7 +273,6 @@
             font-size: 14px;
             outline: none;
         }
-
         .mobile-search-box i {
             color: #888;
         }
@@ -339,25 +285,21 @@
             overflow: hidden;
             background-color: #ddd;
         }
-
         .carousel-track {
             display: flex;
             width: 100%;
             height: 100%;
             transition: transform 0.5s ease-in-out;
         }
-
         .carousel-slide {
             min-width: 100%;
             height: 100%;
         }
-
         .carousel-slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
         .carousel-btn {
             position: absolute;
             top: 50%;
@@ -377,7 +319,6 @@
 
         .prev-btn { left: 15px; }
         .next-btn { right: 15px; }
-
         .carousel-dots {
             position: absolute;
             bottom: 15px;
@@ -389,7 +330,6 @@
             padding: 6px 12px;
             border-radius: 20px;
         }
-
         .dot {
             width: 8px;
             height: 8px;
@@ -398,231 +338,178 @@
             border-radius: 50%;
             cursor: pointer;
         }
-
         .dot.active {
             opacity: 1;
             background-color: var(--accent-color);
             transform: scale(1.2);
         }
 
-       /* ==========================================
-   SAMBUTAN KEPALA PUSKESMAS (ANIMATED & COMPACT)
-   ========================================== */
-.welcome-section {
-    padding: 35px 5%; /* Padding atas & bawah dipersingkat/dirapatkan */
-    background-color: #f8fafc;
-    overflow: hidden; /* Mencegah scrollbar horizontal muncul saat animasi berjalan */
-}
+       /* Sambutan Section */
+        .welcome-section {
+            padding: 35px 5%;
+            background-color: #f8fafc;
+            overflow: hidden; 
+        }
+        .welcome-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 290px 1fr; 
+            gap: 20px; 
+            align-items: stretch; 
+        }
+        .welcome-profile-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 12px; 
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            
+            animation: slideInLeft 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-80px); 
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0); 
+            }
+        }
+        .welcome-photo-frame {
+            position: relative;
+            width: 100%;
+            flex: 1;
+            min-height: 240px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .welcome-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.4s ease;
+        }
+        .welcome-profile-card:hover .welcome-photo-frame img {
+            transform: scale(1.03);
+        }
+        .welcome-profile-info {
+            padding-top: 10px;
+            padding-bottom: 2px;
+        }
+        .welcome-profile-info h3 {
+            font-size: 14px;
+            font-weight: 800;
+            color: #003a3a;
+            margin-bottom: 2px;
+        }
+        .welcome-profile-info p {
+            font-size: 11px;
+            color: var(--accent-color, #e76f51);
+            font-weight: 600;
+            margin: 0;
+        }
+        .welcome-text-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 20px 25px; 
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
 
-.welcome-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 290px 1fr; /* Ukuran kolom disesuaikan lebih kompak */
-    gap: 20px; /* Jarak antar box dipersempit */
-    align-items: stretch; /* Tinggi kedua box tetap sejajar sempurna */
-}
+            animation: slideInRight 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+        @keyframes slideInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(80px); 
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0); 
+            }
+        }
+        .welcome-tag {
+            color: var(--primary-color, #008080);
+            background: rgba(0, 128, 128, 0.08);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            padding: 3px 10px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .welcome-header h2 {
+            font-family: 'League Spartan', sans-serif;
+            font-size: 21px; /* Ukuran font disesuaikan agar lebih padat */
+            font-weight: 800;
+            color: #003a3a;
+            line-height: 1.25;
+            margin-bottom: 12px;
+        }
+        .welcome-quote-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background-color: #fff9f5;
+            border-left: 3px solid var(--accent-color, #f4a261);
+            padding: 10px 14px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 12px;
+        }
+        .welcome-quote-box i {
+            font-size: 14px;
+            color: var(--accent-color, #f4a261);
+            margin-top: 2px;
+        }
+        .welcome-quote-box p {
+            font-size: 12px;
+            font-style: italic;
+            font-weight: 600;
+            color: #333333;
+            margin: 0;
+            line-height: 1.45;
+        }
+        .welcome-body-text p {
+            font-size: 12.5px;
+            line-height: 1.55;
+            color: #555555;
+            margin-bottom: 8px;
+        }
+        .welcome-body-text p:last-child {
+            margin-bottom: 0;
+        }
+        @media (max-width: 992px) {
+            .welcome-container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
 
-/* --- ANIMASI KELUAR DARI KIRI (FOTO PROFIL) --- */
-.welcome-profile-card {
-    background: #ffffff;
-    border-radius: 14px;
-    padding: 12px; /* Padding dalam box dipersedikit */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.04);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    
-    /* Pengaturan Animasi Masuk dari Kiri */
-    animation: slideInLeft 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
+            .welcome-photo-frame {
+                height: 280px;
+            }
 
-@keyframes slideInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-80px); /* Mulai dari luar/sebelah kiri */
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0); /* Kembali ke posisi semula */
-    }
-}
+            .welcome-text-card {
+                padding: 18px 16px;
+            }
 
-.welcome-photo-frame {
-    position: relative;
-    width: 100%;
-    flex: 1;
-    min-height: 240px;
-    border-radius: 10px;
-    overflow: hidden;
-}
+            .welcome-header h2 {
+                font-size: 19px;
+            }
+        }
 
-.welcome-photo-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
-    transition: transform 0.4s ease;
-}
-
-.welcome-profile-card:hover .welcome-photo-frame img {
-    transform: scale(1.03);
-}
-
-.welcome-profile-info {
-    padding-top: 10px;
-    padding-bottom: 2px;
-}
-
-.welcome-profile-info h3 {
-    font-size: 14px;
-    font-weight: 800;
-    color: #003a3a;
-    margin-bottom: 2px;
-}
-
-.welcome-profile-info p {
-    font-size: 11px;
-    color: var(--accent-color, #e76f51);
-    font-weight: 600;
-    margin: 0;
-}
-
-/* --- ANIMASI KELUAR DARI KANAN (BOX TEKS) --- */
-.welcome-text-card {
-    background: #ffffff;
-    border-radius: 14px;
-    padding: 20px 25px; /* Padding dalam box teks diperkecil */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.04);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-
-    /* Pengaturan Animasi Masuk dari Kanan */
-    animation: slideInRight 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
-
-@keyframes slideInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(80px); /* Mulai dari luar/sebelah kanan */
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0); /* Kembali ke posisi semula */
-    }
-}
-
-.welcome-tag {
-    color: var(--primary-color, #008080);
-    background: rgba(0, 128, 128, 0.08);
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.8px;
-    padding: 3px 10px;
-    border-radius: 15px;
-    display: inline-block;
-    margin-bottom: 15px;
-}
-
-.welcome-header h2 {
-    font-family: 'League Spartan', sans-serif;
-    font-size: 21px; /* Ukuran font disesuaikan agar lebih padat */
-    font-weight: 800;
-    color: #003a3a;
-    line-height: 1.25;
-    margin-bottom: 12px;
-}
-
-/* Kutipan Aksen Oranye Ringkas */
-.welcome-quote-box {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    background-color: #fff9f5;
-    border-left: 3px solid var(--accent-color, #f4a261);
-    padding: 10px 14px;
-    border-radius: 0 8px 8px 0;
-    margin-bottom: 12px;
-}
-
-.welcome-quote-box i {
-    font-size: 14px;
-    color: var(--accent-color, #f4a261);
-    margin-top: 2px;
-}
-
-.welcome-quote-box p {
-    font-size: 12px;
-    font-style: italic;
-    font-weight: 600;
-    color: #333333;
-    margin: 0;
-    line-height: 1.45;
-}
-
-.welcome-body-text p {
-    font-size: 12.5px;
-    line-height: 1.55;
-    color: #555555;
-    margin-bottom: 8px;
-}
-
-.welcome-body-text p:last-child {
-    margin-bottom: 0;
-}
-
-/* --- RESPONSIF SMARTPHONE --- */
-@media (max-width: 992px) {
-    .welcome-container {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-    .welcome-photo-frame {
-        height: 280px;
-    }
-
-    .welcome-text-card {
-        padding: 18px 16px;
-    }
-
-    .welcome-header h2 {
-        font-size: 19px;
-    }
-}
-
-        
-/* --- RESPONSIF SMARTPHONE --- */
-@media (max-width: 992px) {
-    .welcome-container {
-        grid-template-columns: 1fr;
-        gap: 35px;
-    }
-    
-    .welcome-image-box {
-        max-width: 100%;
-        height: 380px;
-    }
-
-    .welcome-title {
-        font-size: 24px;
-    }
-
-    .welcome-badge {
-        right: 0;
-        bottom: -15px;
-    }
-}
-
-       /* ==========================================
-   FOOTER SECTION (MODERN & PREMIUM DESIGN)
-   ========================================== */
+       /* FOOTER SECTION (MODERN & PREMIUM DESIGN) */
         .footer {
             background: linear-gradient(135deg, var(--primary-color, #005f5f) 0%, #003a3a 100%);
             color: #ffffff;
@@ -631,8 +518,6 @@
             position: relative;
             overflow: hidden;
         }
-
-        /* Akses Garis Aksen Berkilau di Atas Footer */
         .footer::before {
             content: '';
             position: absolute;
@@ -656,7 +541,6 @@
             flex: 1 1 210px;
         }
 
-        /* Judul Kolom & Sub-Judul Modern */
         .footer-col h3 {
             font-family: 'League Spartan', sans-serif;
             font-size: 15px;
@@ -669,7 +553,6 @@
             position: relative;
         }
 
-        /* Garis Bawah Tipis untuk Judul Kolom */
         .footer-col h3::after {
             content: '';
             display: block;
@@ -726,7 +609,6 @@
             line-height: 1.45;
         }
 
-        /* Item Kontak & Sosmed dengan Efek Hover */
         .footer-contact-item {
             display: flex;
             align-items: center;
@@ -737,7 +619,7 @@
         }
 
         .footer-contact-item:hover {
-            transform: translateX(4px); /* Efek bergeser halus saat di-hover */
+            transform: translateX(4px); 
         }
 
         .footer-contact-item a, 
@@ -752,7 +634,6 @@
             color: #ffffff;
         }
 
-        /* Lingkaran Ikon Glassmorphism */
         .footer-contact-item i {
             background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(4px);
@@ -795,7 +676,7 @@
 
         .footer-links a:hover {
             color: var(--accent-color, #f4a261);
-            transform: translateX(5px); /* Geser ke kanan saat hover */
+            transform: translateX(5px); 
         }
 
         .footer-links a::before {
@@ -810,8 +691,6 @@
         .footer-links a:hover::before {
             opacity: 1;
         }
-
-        /* Kartu Statistik Pengunjung (Glass Badge) */
         .visitor-stats {
             list-style: none;
             padding: 0;
@@ -841,7 +720,7 @@
         .visitor-stats .val {
             color: var(--accent-color, #f4a261);
             font-weight: 700;
-            font-family: 'Courier New', Courier, monospace; /* Tampilan angka digital */
+            font-family: 'Courier New', Courier, monospace;
             letter-spacing: 0.5px;
         }
 
@@ -855,11 +734,8 @@
             color: rgba(255, 255, 255, 0.6);
         }
 
-        /* ========================================================= */
         /* OPTIMASI NAVBAR KHUSUS LAYAR MOBILE (HP) */
-        /* ========================================================= */
         @media (max-width: 992px) {
-            /* Sembunyikan Top Bar Bawaan di HP agar Ringkas */
             .top-bar {
                 display: none;
             }
@@ -879,18 +755,16 @@
             }
 
             .mobile-toggle {
-                display: flex; /* Tampilkan Tombol Hamburger */
+                display: flex; 
             }
 
             .search-btn {
-                display: none; /* Sembunyikan Tombol Bulat Search di Header HP */
+                display: none;
             }
 
             .mobile-search {
-                display: block; /* Tampilkan Kolom Search di dalam Dropdown Mobile */
+                display: block;
             }
-
-            /* Container Menu Navigasi Mobile Mode App/Card */
             .nav-menu {
                 position: fixed;
                 top: 62px;
@@ -905,21 +779,18 @@
                 overflow-y: auto;
                 box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
                 
-                /* Animasi Slide-Down */
                 opacity: 0;
                 visibility: hidden;
                 transform: translateY(-10px);
                 transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             }
 
-            /* Saat Menu Diaktifkan (Diklik Hamburger) */
             .nav-menu.active {
                 opacity: 1;
                 visibility: visible;
                 transform: translateY(0);
             }
 
-            /* Info Status Jam Buka Khusus Mobile (Didalam Menu Dropdown) */
             .mobile-status-bar {
                 background: #f1f5f9;
                 padding: 10px 16px;
@@ -930,7 +801,6 @@
                 color: #475569;
                 border-bottom: 1px solid #e2e8f0;
             }
-
             .nav-item {
                 width: 100%;
                 height: auto;
@@ -952,7 +822,6 @@
                 color: var(--primary-color);
             }
 
-            /* Sub-menu Dropdown di HP */
             .dropdown-menu {
                 position: static;
                 box-shadow: none;
@@ -975,7 +844,6 @@
                 color: var(--primary-color);
             }
 
-            /* Rotasi Icon Panah Saat Submenu Terbuka */
             .nav-item.open .nav-icon {
                 transform: rotate(180deg);
                 color: var(--primary-color);
@@ -993,9 +861,8 @@
 </head>
 <body>
 
-    <!-- HEADER FIXED WRAPPER -->
+    <!-- Header atas navbar -->
     <header class="header-wrapper" id="header-wrapper">
-        <!-- 1. Top Bar Kontak & Jam Pelayanan (Hanya Desktop) -->
        <div class="top-bar">
             <div class="top-left">
                 <i class="fa-solid fa-phone"></i>
@@ -1027,22 +894,19 @@
             </div>
         </div>
 
-        <!-- 2. Navbar Utama -->
+            <!-- Navbar -->
         <nav class="navbar">
             <a href="#" class="logo">
                 <img src="https://www.freepnglogos.com/uploads/logo-puskesmas-png/logo-puskesmas-lambang-baru-puskesmas-puskesmas-makale-3.png" alt="Logo Puskesmas">
                 <div>PUSKESMAS<br>MADUKARA 1</div>
             </a>
 
-            <!-- Tombol Hamburger Mobile -->
             <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu Utama">
                 <i class="fa-solid fa-bars"></i>
             </button>
             
-            <!-- List Menu Navigasi -->
             <ul class="nav-menu" id="nav-menu">
                 
-                <!-- Status Buka/Tutup Khusus Layar HP -->
                 <li class="mobile-status-bar">
                     <span><i class="fa-solid fa-clock" style="color:var(--primary-color);"></i> Jam Pelayanan:</span>
                     <div>
@@ -1051,7 +915,6 @@
                     </div>
                 </li>
 
-                <!-- Search Mobile -->
                 <li class="mobile-search">
                     <div class="mobile-search-box">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -1067,26 +930,19 @@
                         <i class="fa-solid fa-chevron-down nav-icon"></i>
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a href="#visi-misi">Profil</a></li>
                         <li><a href="#visi-misi">Visi Misi dan Motto</a></li>
                         <li><a href="#tata-nilai">Tata Nilai</a></li>
                         <li><a href="#struktur">Struktur Organisasi</a></li>
                     </ul>
-                    @php 
-                        $struktur = \App\Models\ProfilOrganisasi::where('jenis', 'struktur_organisasi')->first(); 
-                    @endphp
-
-                    @if($struktur)
-                        <img src="{{ asset('storage/' . $struktur->gambar) }}" alt="Struktur Organisasi">
-                    @endif
                 </li>
 
                 <li class="nav-item dropdown-toggle">
                     <a href="javascript:void(0)">
-                        <span>Standar Layanan</span>
+                        <span>Layanan</span>
                         <i class="fa-solid fa-chevron-down nav-icon"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#standar-pelayanan">Standar Pelayanan</a></li>
                         <li><a href="#jenis-pelayanan">Jenis Pelayanan</a></li>
                         <li><a href="#maklumat">Maklumat Pelayanan</a></li>
                         <li><a href="#mutu">Mutu Pelayanan</a></li>
@@ -1095,16 +951,19 @@
 
                 <li class="nav-item dropdown-toggle">
                     <a href="javascript:void(0)">
-                        <span>Layanan Medis</span>
+                        <span>Standar Layanan</span>
                         <i class="fa-solid fa-chevron-down nav-icon"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#pendaftaran">Pendaftaran</a></li>
-                        <li><a href="#pemeriksaan-umum">Pemeriksaan Umum</a></li>
-                        <li><a href="#kia">Kesehatan Ibu & Anak</a></li>
-                        <li><a href="#gigi">Pemeriksaan Gigi</a></li>
-                        <li><a href="#laboratorium">Laboratorium</a></li>
-                        <li><a href="#kefarmasian">Apotek / Obat</a></li>
+                        <li><a href="#pendaftaran">Pelayanan Pendaftaran</a></li>
+                        <li><a href="#pemeriksaan-umum">Pelayanan Pemeriksaan Umum</a></li>
+                        <li><a href="#kia">Pelayanan Tindakan Umum</a></li>
+                        <li><a href="#gigi">Pelayanan Kesehatan Ibu dan Anak</a></li>
+                        <li><a href="#laboratorium">Pelayanan Imunisasi</a></li>
+                        <li><a href="#kefarmasian">Pelayanan Gigi dan Mulut</a></li>
+                        <li><a href="#kefarmasian">Pelayanan Laboratorium</a></li>
+                        <li><a href="#kefarmasian">Pelayanan Kasir</a></li>
+                        <li><a href="#kefarmasian">Pelayanan Obat dan Kefarmasian</a></li>
                     </ul>
                 </li>
 
@@ -1126,8 +985,9 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="#sp4n">SP4N Lapor</a></li>
-                        <li><a href="#wbs">WBS Online</a></li>
+                        <li><a href="#wbs">WBS Puseksmas<br>Madukara 1</a></li>
                         <li><a href="#alur-pengaduan">Alur Pengaduan</a></li>
+                        <li><a href="#alur-pengaduan">Mekanisme Pengaduan</a></li>
                     </ul>
                 </li>
 
@@ -1148,7 +1008,6 @@
                     <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title ?? 'Carousel Image' }}">
                 </div>
             @empty
-                <!-- Fallback jika belum ada gambar di database -->
                 <div class="carousel-slide">
                     <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80" alt="Default">
                 </div>
@@ -1163,10 +1022,9 @@
 
 
    <!-- SEKSI SAMBUTAN KEPALA PUSKESMAS -->
-<section class="welcome-section">
+    <section class="welcome-section">
     <div class="welcome-container">
         
-        <!-- Kolom Kiri: Profil & Foto Kepala Puskesmas -->
         <div class="welcome-profile-card">
             <div class="welcome-photo-frame">
                 <img src="{{ isset($pimpinan) && $pimpinan->foto ? asset('storage/' . $pimpinan->foto) : 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80' }}" alt="Foto Pimpinan">
@@ -1177,7 +1035,6 @@
             </div>
         </div>
 
-        <!-- Kolom Kanan: Isi Teks Sambutan -->
         <div class="welcome-text-card">
             <div class="welcome-header">
                 <span class="welcome-tag">SAMBUTAN PIMPINAN</span>
@@ -1210,15 +1067,13 @@
                 @endif
             </div>
         </div>
-
     </div>
-</section>
-
+    </section>
 
      <!-- FOOTER SECTION -->
     <footer class="footer" id="kontak">
         <div class="footer-container">
-            <!-- Kolom 1: Profil & Identitas -->
+
             <div class="footer-col">
                 <div class="footer-logo-group">
                     <img src="https://kemkes.go.id/app_asset/image_content/167420049363ca45ad438f30.09191866.png" alt="Logo Kemenkes">
@@ -1236,7 +1091,6 @@
                 </p>
             </div>
 
-            <!-- Kolom 2: Kontak & Sosmed -->
             <div class="footer-col">
                 <h3>HUBUNGI KAMI</h3>
                 <div class="footer-contact-item">
@@ -1271,7 +1125,6 @@
                 </div>
             </div>
 
-            <!-- Kolom 3: Standar Layanan -->
             <div class="footer-col">
                 <h3>STANDAR LAYANAN</h3>
                 <ul class="footer-links">
@@ -1287,7 +1140,6 @@
                 </ul>
             </div>
 
-            <!-- Kolom 4: Statistik Pengunjung -->
             <div class="footer-col">
                 <h3>PENGUNJUNG</h3>
                 <ul class="visitor-stats">
@@ -1299,12 +1151,10 @@
             </div>
         </div>
 
-        <!-- Bottom Copyright -->
         <div class="footer-bottom">
             <p>&copy; 2026 Puskesmas Madukara 1 Kabupaten Banjarnegara. All Rights Reserved.</p>
         </div>
     </footer>
-
 
     <!-- SCRIPT JAVASCRIPT -->
     <script>
@@ -1450,5 +1300,6 @@
         }
     });
     </script>
+
 </body>
 </html>

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
+use Illuminate\Routing\Controller as BaseController;
 
-class DashboardController extends Controller
+class Controller extends BaseController
 {
     // Menampilkan Halaman Admin
     public function index()
