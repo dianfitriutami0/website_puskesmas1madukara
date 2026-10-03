@@ -562,7 +562,6 @@
                 <li class="nav-item dropdown-toggle">
                     <a href="javascript:void(0)"><span>Tentang Kami</span><i class="fa-solid fa-chevron-down nav-icon"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ route('home') }}#sambutan">Sambutan Kepala Puskesmas</a></li>
                         <li><a href="#visi-misi">Profil</a></li>
                         <li><a href="#visi-misi">Visi Misi dan Motto</a></li>
                         <li><a href="#tata-nilai">Tata Nilai</a></li>
@@ -609,7 +608,7 @@
                     <a href="javascript:void(0)"><span>Pengaduan</span><i class="fa-solid fa-chevron-down nav-icon"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="#sp4n">SP4N Lapor</a></li>
-                        <li><a href="#wbs">WBS Puskesmas Madukara 1</a></li>
+                        <li><a href="#wbs">WBS Puskesmas <br> Madukara 1</a></li>
                         <li><a href="#alur-pengaduan">Alur Pengaduan</a></li>
                         <li><a href="#mekanisme-pengaduan">Mekanisme Pengaduan</a></li>
                     </ul>

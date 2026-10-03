@@ -2,6 +2,7 @@
 
 @section('title', 'Edit Berita')
 @section('heading', 'Edit Berita')
+@section('breadcrumb', 'Berita')
 
 @section('content')
     @include('admin.news._form', [

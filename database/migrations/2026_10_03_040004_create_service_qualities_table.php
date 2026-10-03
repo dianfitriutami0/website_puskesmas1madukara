@@ -6,22 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('service_standards', function (Blueprint $table) {
+        Schema::create('service_qualities', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->default('Mutu Pelayanan');
+            $table->longText('konten')->nullable();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('service_standards');
+        Schema::dropIfExists('service_qualities');
     }
 };

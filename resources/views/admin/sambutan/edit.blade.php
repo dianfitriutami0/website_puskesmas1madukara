@@ -2,47 +2,91 @@
 
 @section('title', 'Sambutan Kepala Puskesmas')
 @section('heading', 'Sambutan Kepala Puskesmas')
+@section('breadcrumb', 'Sambutan')
 
 @section('content')
 <form method="POST" action="{{ route('admin.sambutan.update') }}" enctype="multipart/form-data"
-      class="max-w-3xl space-y-5 rounded-xl bg-white p-6 shadow-sm">
+      class="card" style="max-width: 800px;">
     @csrf @method('PUT')
 
-    <div>
-        <label class="mb-1 block text-sm font-medium">Foto Kepala Puskesmas</label>
+    <div class="card-header">
+        <h2 class="card-title">
+            <i class="fa-solid fa-user-tie"></i>
+            Edit Sambutan
+        </h2>
+    </div>
+
+    {{-- Photo Upload --}}
+    <div class="form-group">
+        <label class="form-label">
+            <i class="fa-solid fa-camera" style="margin-right: 6px; color: var(--muted);"></i>
+            Foto Kepala Puskesmas
+        </label>
         @if ($sambutan->foto)
-            <img src="{{ asset('storage/' . $sambutan->foto) }}" alt="Foto" class="mb-3 h-40 rounded-lg object-cover">
+            <div style="margin-bottom: 16px; border-radius: var(--radius-sm); overflow: hidden; height: 200px; max-width: 300px;">
+                <img src="{{ asset('storage/' . $sambutan->foto) }}" alt="Foto Kepala Puskesmas"
+                     style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
+            </div>
         @endif
         <input type="file" name="foto" accept="image/*"
-               class="block w-full text-sm file:mr-3 file:rounded-lg file:border-0 file:bg-emerald-50 file:px-3 file:py-2 file:text-emerald-700">
-        <p class="mt-1 text-xs text-slate-400">Kosongkan jika tidak ingin mengganti foto. Maks 2 MB.</p>
+               class="form-input" style="padding: 10px;">
+        <p class="form-hint">Kosongkan jika tidak ingin mengganti foto. Maksimal 2 MB.</p>
     </div>
 
-    <div class="grid gap-4 sm:grid-cols-2">
-        <div>
-            <label class="mb-1 block text-sm font-medium">Nama Lengkap</label>
+    {{-- Name Fields --}}
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px;">
+        <div class="form-group">
+            <label class="form-label">
+                <i class="fa-solid fa-user" style="margin-right: 6px; color: var(--muted);"></i>
+                Nama Lengkap
+            </label>
             <input type="text" name="nama_lengkap" value="{{ old('nama_lengkap', $sambutan->nama_lengkap) }}" required
-                   class="w-full rounded-lg border border-slate-300 px-3 py-2">
+                   placeholder="Contoh: dr. John Doe"
+                   class="form-input">
         </div>
-        <div>
-            <label class="mb-1 block text-sm font-medium">Gelar</label>
-            <input type="text" name="gelar" value="{{ old('gelar', $sambutan->gelar) }}" placeholder="mis. M.Kes"
-                   class="w-full rounded-lg border border-slate-300 px-3 py-2">
+        <div class="form-group">
+            <label class="form-label">
+                <i class="fa-solid fa-certificate" style="margin-right: 6px; color: var(--muted);"></i>
+                Gelar
+            </label>
+            <input type="text" name="gelar" value="{{ old('gelar', $sambutan->gelar) }}"
+                   placeholder="Contoh: M.Kes"
+                   class="form-input">
         </div>
     </div>
 
-    <div>
-        <label class="mb-1 block text-sm font-medium">Jabatan</label>
+    {{-- Position --}}
+    <div class="form-group">
+        <label class="form-label">
+            <i class="fa-solid fa-briefcase" style="margin-right: 6px; color: var(--muted);"></i>
+            Jabatan
+        </label>
         <input type="text" name="jabatan" value="{{ old('jabatan', $sambutan->jabatan) }}" required
-               class="w-full rounded-lg border border-slate-300 px-3 py-2">
+               placeholder="Contoh: Kepala Puskesmas Madukara 1"
+               class="form-input">
     </div>
 
-    <div>
-        <label class="mb-1 block text-sm font-medium">Teks Sambutan</label>
+    {{-- Sambutan Text --}}
+    <div class="form-group">
+        <label class="form-label">
+            <i class="fa-solid fa-quote-left" style="margin-right: 6px; color: var(--muted);"></i>
+            Teks Sambutan
+        </label>
         <textarea name="sambutan" rows="10" required
-                  class="w-full rounded-lg border border-slate-300 px-3 py-2">{{ old('sambutan', $sambutan->sambutan) }}</textarea>
+                  placeholder="Tuliskan teks sambutan di sini..."
+                  class="form-input">{{ old('sambutan', $sambutan->sambutan) }}</textarea>
+        <p class="form-hint">
+            <i class="fa-solid fa-lightbulb" style="margin-right: 4px;"></i>
+            Tips: Tambahkan baris yang diawali dengan tanda ">" untuk kutipan khusus yang akan ditampilkan dalam kotak.
+        </p>
     </div>
 
-    <button class="rounded-lg bg-emerald-600 px-5 py-2 font-semibold text-white hover:bg-emerald-700">Simpan</button>
+    {{-- Submit --}}
+    <div style="display: flex; gap: 12px; padding-top: 8px;">
+        <button type="submit" class="btn btn-primary">
+            <i class="fa-solid fa-floppy-disk"></i>
+            Simpan Perubahan
+        </button>
+    </div>
 </form>
 @endsection

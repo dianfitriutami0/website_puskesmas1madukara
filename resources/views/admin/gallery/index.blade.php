@@ -1,40 +1,94 @@
 @extends('layouts.admin')
 
-@section('title', 'Galeri')
+@section('title', 'Galeri Foto')
 @section('heading', 'Galeri Dokumentasi')
+@section('breadcrumb', 'Galeri')
 
 @section('content')
-<form method="POST" action="{{ route('admin.gallery.store') }}" enctype="multipart/form-data"
-      class="mb-8 max-w-2xl space-y-4 rounded-xl bg-white p-6 shadow-sm">
-    @csrf
-    <div>
-        <label class="mb-1 block text-sm font-medium">Keterangan (opsional, berlaku untuk semua foto yang diunggah)</label>
-        <input type="text" name="title" value="{{ old('title') }}" class="w-full rounded-lg border border-slate-300 px-3 py-2">
+{{-- Upload Form --}}
+<div class="card" style="margin-bottom: 32px;">
+    <div class="card-header">
+        <h2 class="card-title">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            Upload Foto Baru
+        </h2>
     </div>
-    <div>
-        <label class="mb-1 block text-sm font-medium">Foto (maks 10 file, 3 MB per file)</label>
-        <input type="file" name="photos[]" accept="image/*" multiple required
-               class="block w-full text-sm file:mr-3 file:rounded-lg file:border-0 file:bg-emerald-50 file:px-3 file:py-2 file:text-emerald-700">
-    </div>
-    <button class="rounded-lg bg-emerald-600 px-5 py-2 font-semibold text-white hover:bg-emerald-700">Unggah</button>
-    <p class="text-xs text-slate-400">Foto utama dari Berita otomatis ikut tampil di galeri website.</p>
-</form>
 
-<div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-    @forelse ($photos as $photo)
-        <div class="overflow-hidden rounded-xl bg-white shadow-sm">
-            <img src="{{ asset('storage/' . $photo->image) }}" alt="{{ $photo->title }}" class="aspect-square w-full object-cover">
-            <div class="flex items-center justify-between p-3 text-sm">
-                <span class="truncate text-slate-600">{{ $photo->title ?? '-' }}</span>
-                <form method="POST" action="{{ route('admin.gallery.destroy', $photo) }}" onsubmit="return confirm('Hapus foto ini?')">
-                    @csrf @method('DELETE')
-                    <button class="text-red-600 hover:underline">Hapus</button>
-                </form>
+    <form method="POST" action="{{ route('admin.gallery.store') }}" enctype="multipart/form-data">
+        @csrf
+        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 20px; align-items: end;">
+            <div class="form-group" style="margin-bottom: 0;">
+                <label class="form-label">Keterangan (opsional)</label>
+                <input type="text" name="title" value="{{ old('title') }}"
+                       placeholder="Contoh: Kegiatan Posyandu"
+                       class="form-input">
+            </div>
+            <div class="form-group" style="margin-bottom: 0;">
+                <label class="form-label">File Foto</label>
+                <input type="file" name="photos[]" accept="image/*" multiple required
+                       class="form-input" style="padding: 10px;">
             </div>
         </div>
-    @empty
-        <p class="col-span-full text-slate-400">Belum ada foto.</p>
-    @endforelse
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 16px;">
+            <p style="font-size: 12px; color: var(--muted);">
+                <i class="fa-solid fa-info-circle" style="margin-right: 4px;"></i>
+                Maksimal 10 file sekaligus, 3 MB per file.
+            </p>
+            <button type="submit" class="btn btn-primary">
+                <i class="fa-solid fa-upload"></i>
+                Upload
+            </button>
+        </div>
+    </form>
 </div>
-<div class="mt-6">{{ $photos->links() }}</div>
+
+{{-- Gallery Grid --}}
+@if ($photos->isEmpty())
+    <div class="empty-state">
+        <i class="fa-regular fa-images" style="font-size: 48px; color: var(--muted); margin-bottom: 16px;"></i>
+        <h3 style="font-size: 18px; color: var(--ink); margin-bottom: 8px;">Belum Ada Foto</h3>
+        <p style="font-size: 14px; color: var(--muted);">Upload foto pertama Anda menggunakan form di atas.</p>
+    </div>
+@else
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px;">
+        @foreach ($photos as $photo)
+            <div class="card" style="padding: 0; overflow: hidden;">
+                <div style="height: 180px; overflow: hidden; background: var(--bg-light);">
+                    <img src="{{ asset('storage/' . $photo->image) }}" alt="{{ $photo->title }}"
+                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s var(--ease);"
+                         class="gallery-img">
+                </div>
+                <div style="padding: 14px 16px;">
+                    <p style="font-size: 13px; color: var(--ink); font-weight: 500; margin-bottom: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                        {{ $photo->title ?? '-' }}
+                    </p>
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span style="font-size: 11px; color: var(--muted);">
+                            {{ $photo->created_at->format('d/m/Y') }}
+                        </span>
+                        <form method="POST" action="{{ route('admin.gallery.destroy', $photo) }}"
+                              onsubmit="return confirm('Hapus foto ini?')">
+                            @csrf @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+
+    @if ($photos->hasPages())
+        <div class="pagination-wrapper">
+            {{ $photos->links() }}
+        </div>
+    @endif
+@endif
+
+<style>
+    .gallery-img:hover {
+        transform: scale(1.05);
+    }
+</style>
 @endsection

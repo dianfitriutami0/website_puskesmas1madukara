@@ -1,38 +1,68 @@
-<form method="POST" action="{{ $action }}" enctype="multipart/form-data"
-      class="max-w-3xl space-y-5 rounded-xl bg-white p-6 shadow-sm">
+<form method="POST" action="{{ $action }}" enctype="multipart/form-data" class="card" style="border: none; box-shadow: var(--shadow-md);">
     @csrf
     @if ($method !== 'POST') @method($method) @endif
 
-    <div>
-        <label class="mb-1 block text-sm font-medium">Judul</label>
+    <div class="card-header">
+        <h2 class="card-title">
+            <i class="fa-solid {{ $news->exists ? 'fa-pen' : 'fa-plus' }}"></i>
+            {{ $news->exists ? 'Edit Berita' : 'Buat Berita Baru' }}
+        </h2>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">
+            <i class="fa-solid fa-heading" style="margin-right: 6px; color: var(--muted);"></i>
+            Judul Berita
+        </label>
         <input type="text" name="title" value="{{ old('title', $news->title) }}" required
-               class="w-full rounded-lg border border-slate-300 px-3 py-2">
+               placeholder="Masukkan judul berita..."
+               class="form-input">
     </div>
 
-    <div>
-        <label class="mb-1 block text-sm font-medium">Slug</label>
-        <input type="text" name="slug" value="{{ old('slug', $news->slug) }}" placeholder="dibuat otomatis dari judul jika kosong"
-               class="w-full rounded-lg border border-slate-300 px-3 py-2">
+    <div class="form-group">
+        <label class="form-label">
+            <i class="fa-solid fa-link" style="margin-right: 6px; color: var(--muted);"></i>
+            Slug URL
+        </label>
+        <input type="text" name="slug" value="{{ old('slug', $news->slug) }}"
+               placeholder="dibuat otomatis dari judul jika kosong"
+               class="form-input">
+        <p class="form-hint">Slug adalah URL-friendly version dari judul. Biarkan kosong untuk generates otomatis.</p>
     </div>
 
-    <div>
-        <label class="mb-1 block text-sm font-medium">Foto Utama</label>
+    <div class="form-group">
+        <label class="form-label">
+            <i class="fa-solid fa-image" style="margin-right: 6px; color: var(--muted);"></i>
+            Foto Utama
+        </label>
         @if ($news->image)
-            <img src="{{ asset('storage/' . $news->image) }}" alt="" class="mb-3 h-36 rounded-lg object-cover">
+            <div style="margin-bottom: 12px; border-radius: var(--radius-sm); overflow: hidden; height: 160px; max-width: 300px;">
+                <img src="{{ asset('storage/' . $news->image) }}" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
         @endif
         <input type="file" name="image" accept="image/*" {{ $news->exists ? '' : 'required' }}
-               class="block w-full text-sm file:mr-3 file:rounded-lg file:border-0 file:bg-emerald-50 file:px-3 file:py-2 file:text-emerald-700">
-        <p class="mt-1 text-xs text-slate-400">JPG/PNG/WebP, maks 3 MB.</p>
+               class="form-input" style="padding: 10px;">
+        <p class="form-hint">JPG/PNG/WebP, maksimal 3 MB.</p>
     </div>
 
-    <div>
-        <label class="mb-1 block text-sm font-medium">Konten</label>
+    <div class="form-group">
+        <label class="form-label">
+            <i class="fa-solid fa-paragraph" style="margin-right: 6px; color: var(--muted);"></i>
+            Konten Berita
+        </label>
         <textarea name="content" rows="12" required
-                  class="w-full rounded-lg border border-slate-300 px-3 py-2">{{ old('content', $news->content) }}</textarea>
+                  placeholder="Tuliskan konten berita di sini..."
+                  class="form-input">{{ old('content', $news->content) }}</textarea>
     </div>
 
-    <div class="flex gap-3">
-        <button class="rounded-lg bg-emerald-600 px-5 py-2 font-semibold text-white hover:bg-emerald-700">Simpan</button>
-        <a href="{{ route('admin.news.index') }}" class="rounded-lg px-5 py-2 text-slate-600 hover:bg-slate-100">Batal</a>
+    <div style="display: flex; gap: 12px; padding-top: 8px;">
+        <button type="submit" class="btn btn-primary">
+            <i class="fa-solid fa-floppy-disk"></i>
+            Simpan
+        </button>
+        <a href="{{ route('admin.news.index') }}" class="btn btn-secondary">
+            <i class="fa-solid fa-xmark"></i>
+            Batal
+        </a>
     </div>
 </form>
